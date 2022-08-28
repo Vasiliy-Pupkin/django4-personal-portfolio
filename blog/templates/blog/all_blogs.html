@@ -1,0 +1,21 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+
+{% load ru_pluralize %}
+<body>
+Привет блог!
+<h2>Я написал уже {{ blogs.count }} {{ blogs.count|rupluralize:"блог,блога,блогов"}}</h2>
+<br>
+<div class="container text-center">
+    {% for blog in blogs %}
+      <a href="{% url 'blog:detail' blog.id %}"> <h2>{{ blog.title }}</h2></a>
+        <h5>{{ blog.data_blog|date:"D d M Y" }}</h5>
+        <p>{{ blog.description|striptags|truncatechars:100 }}</p>
+        <br>
+        <br>
+    {% endfor %}
+</div>
+</body>
+</html>
+
+{% endblock %}

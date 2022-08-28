@@ -1,0 +1,31 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+
+<div class="container text-center">
+    <h1>Главная страница сайта</h1>
+    <br>
+    <br>
+     {% load static %}
+    <img src="{% static '/portfolio/Marsa.jpg' %}" width=297 height=396>
+    <br>
+    <br>
+    <a href="{% static 'portfolio/resume.pdf'%}">Резюме</a>
+    <br>
+    <br>
+    <a href="{% url 'blog:all_blogs' %}">Блог</a>
+    <br>
+    <br>
+    <form action="{% url 'view_portfolio' %}">
+        <input type="submit" value="Показать портфолио" class="btn btn-primary">
+    <br>
+    <br>
+    </form>
+    <form action="{% url 'blog:all_blogs' %}">
+        <input type="submit" value="Показать блог" class="btn btn-primary">
+    <br>
+    <br>
+    </form>
+    <a href="{%  url 'about' %}">О сайте</a>
+
+</div>
+{% endblock %}
