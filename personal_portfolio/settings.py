@@ -118,3 +118,8 @@ MEDIA_URL = "media/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATIC_ROOT = BASE_DIR / "static"
 MEDIA_ROOT = BASE_DIR / "media"
+
+try:
+    from .local_setting import *
+except:
+    print('Это онлайн версия сайта!')
